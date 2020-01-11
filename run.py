@@ -7,7 +7,7 @@ import signal
 
 while 1 > 0:
 
-    processes = os.popen("ps uaxw |grep ffmpeg |grep -c -v grep")
+    processes = int(os.popen("ps uaxw |grep ffmpeg |grep -c -v grep"))
 
     if ( processes < 1 ):
         m += 1
