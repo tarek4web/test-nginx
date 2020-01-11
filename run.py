@@ -7,10 +7,7 @@ import signal
 
 while 1 > 0:
 
-    process = os.popen("ps uaxw |grep ffmpeg |grep -c -v grep")
-    processes = int(process[0])
-    if ( processes < 1 ):
-        m += 1
+    if len( os.popen( "ps uaxw |grep ffmpeg |grep -c -v grep | awk '{ print $1 }'" ).read().strip().split( '\n' ) ) < 1:
         try:
             print ("Restarting ffmpeg")
             os.system("bash /home/ffmpeg.sh") 
