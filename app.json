@@ -1,8 +1,27 @@
 {
-  "name": "heroku-docker-nginx-example",
-  "description": "A barebones nginx installation using Docker",
-  "repository": "https://github.com/rjoonas/heroku-docker-nginx-example",
-  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg",
-  "keywords": ["nginx", "docker", "proxy"],
-  "stack": "container"
+	"name": "heroku-docker-nginx-example",
+	"description": "A barebones nginx installation using Docker",
+	"repository": "https://github.com/rjoonas/heroku-docker-nginx-example",
+    "env": {
+        "STREAMURL": {
+            "description": "STREAM URL SOURCE",
+            "required": true
+        },
+        "STREAMURLAGENT": {
+            "description": "User-Agent",
+            "value": "NSPlayer/9.0.0.3268",
+            "required": true
+        },
+        "STREAMCODEC": {
+          "description": "STREAM CODEC",
+          "value": " -acodec aac -ac 1 -ar 44100 -b:a 128k -pix_fmt yuv420p -profile:v high -s 1280x720 -deinterlace -vcodec libx264 -preset veryfast -g 30 -r 25 -strict -2 -avoid_negative_ts make_zero -movflags  faststart -b:v 2500k -maxrate 2500k -bufsize 3000k ",
+          "required": true
+        },
+        "STREAMRTMP": {
+          "description": "RTMP LINK",
+          "required": true
+        }
+    },  "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Nginx_logo.svg",
+	"keywords": ["nginx", "docker", "proxy"],
+	"stack": "container"
 }
